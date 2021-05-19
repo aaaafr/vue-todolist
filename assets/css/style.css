@@ -13,3 +13,36 @@ body {
 img {
     width: 300px;
 }
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tasks {
+    padding: 30px;
+    margin: 30px
+}
+
+.tasksComplete{
+    padding: 30px;
+    margin: 30px
+} 
+
+.tasksTrash{
+    padding: 30px;
+    margin: 30px
+}
+
+li {
+    list-style: none;
+}
+
+h1{
+    font-size: 25px;
+}
+
+#text {
+    border-style: none;
+    background-color: deepskyblue;
+}

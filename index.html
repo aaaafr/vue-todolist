@@ -19,23 +19,35 @@
             <input v-model="newTask" placeholder="Add a new task">
             <button @click="addTask">Add task</button>
         </div>
-        <ul class="tasks" v-if=" tasks.length > 0">
-            <li class="task" v-for="(task, index) in tasks">
-                <input v-model="tasks[index]" type="text" name="" id="">
-                <i class="fas fa-times-circle" @click="removeTask(index)"></i>
-                <i class="fas fa-check-circle" @click="taskComplete(task)" v-on:click="removeTask(index)"></i>
-                <i class="fas fa-trash-alt"></i>
-            </li>
-        </ul>
-        <div class="no_tasks" v-else>
-            <p>Nothing to do</p>
+        <div class="columns">
+            <ul class="tasks" v-if=" tasks.length > 0">
+                <h1>ToDo List</h1>
+                <li class="task" v-for="(task, index) in tasks">
+                    <input v-model="tasks[index]" type="text" name="" id="text">
+                    <i class="fas fa-times-circle" @click="removeTask(index)"></i>
+                    <i class="fas fa-check-circle" @click="taskComplete(task)" v-on:click="removeTask(index)"></i>
+                    <i class="fas fa-trash-alt" @click="taskTrash(task)" v-on:click="removeTask(index)"></i>
+                </li>
+            </ul>
+            <div class="no_tasks" v-else>
+                <p>Nothing to do</p>
+            </div>
+            <ul class="tasksComplete">
+                <h1>Complete ToDo List</h1>
+                <li class="taskComplete" v-if="tasksComplete" v-for="(taskComplete, index) in tasksComplete">
+                    <input v-model="tasksComplete[index]" type="text" name="" id="text">
+                    <i class="fas fa-undo" @click="returnTo(tasksComplete[index])" v-on:click="removeTaskComplete(index)"></i>
+                </li>
+            </ul>
+            <ul class="tasksTrash">
+                <h1>Trash</h1>
+                <li class="taskTrash" v-if="tasksTrash" v-for="(taskTrash, index) in tasksTrash">
+                    <input v-model="tasksTrash[index]" type="text" name="" id="text">
+                    <i class="fas fa-undo" @click="returnTo(tasksTrash[index])"  v-on:click="removeTaskTrash(index)"></i>
+                </li>
+            </ul>
         </div>
-        <ul class="tasksComplete">
-            <li class="taskComplete" v-if="tasksComplete" v-for="(taskComplete, index) in tasksComplete">
-                <input v-model="tasksComplete[index]" type="text" name="" id="">
-                <i class="fas fa-undo"></i>
-            </li>
-        </ul>
+        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="./main.js"></script>

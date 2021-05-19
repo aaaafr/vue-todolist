@@ -43,6 +43,10 @@ const app = new Vue ({
 
         ],
 
+        tasksTrash: [
+
+        ],
+
         key: "",
     },
 
@@ -67,6 +71,37 @@ const app = new Vue ({
             console.log(this.tasksComplete.push(task))
             console.log(this.tasksComplete);
         },
+
+        taskTrash(task){
+            console.log(task);
+            console.log(this.tasksTrash.push(task))
+            console.log(this.tasksTrash);
+
+        },
+
+        returnTo(task){
+            console.log(task);
+            console.log(this.tasks.push(task))
+            
+        },
+
+        removeTaskComplete(index){
+            // remove task
+            console.log("remove task n." + index);
+            // usare splice()
+            this.tasksComplete.splice(index, 1)
+
+        },
+
+        removeTaskTrash(index){
+            // remove task
+            console.log("remove task n." + index);
+            // usare splice()
+            this.tasksTrash.splice(index, 1)
+
+        },
+
+       
 
         
 
