@@ -33,6 +33,7 @@ const app = new Vue ({
     data: {
         logo: "./assets/img/logo.png",
         newTask: "", 
+        error: "",
         tasks: [
             "ciao",
             "vai",
@@ -52,9 +53,17 @@ const app = new Vue ({
 
     methods: {
         addTask(){
+            if(this.newTask.length > 3){
+                this.tasks.push(this.newTask)
+                this.newTask = ""
+                this.error = ""
+
+            }else {
+                this.error = "Devi inserire almeno 3 caratteri"
+
+            }
             // push new task in tasks
-            this.tasks.push(this.newTask)
-            this.newTask = ""
+
         },
 
         removeTask(index){

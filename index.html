@@ -18,6 +18,7 @@
         <div class="add_task">
             <input v-model="newTask" placeholder="Add a new task">
             <button @click="addTask">Add task</button>
+            <small v-if="error.length > 0">{{error}}</small>
         </div>
         <div class="columns">
             <ul class="tasks" v-if=" tasks.length > 0">
